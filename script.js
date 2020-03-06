@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var clearBtn = document.querySelector("#clear")
 
 
 // Prompt to ask how long password should be
@@ -8,7 +9,7 @@ var charNumber = prompt ("Please select a password character length between 8 an
 // Validation of correct character length
 
 if (charNumber < 8 || charNumber > 128) {
-    alert ("Invalid number of characters. Please refresh and enter valid character length")
+    alert ("Invalid response. Please refresh and enter valid character length")
 }
 
 else {
@@ -18,8 +19,6 @@ var wantsNumbers = confirm("would you like to include numbers?")
 var wantsSymbols = confirm ("would you like to include symbols?")
 var wantsLowercase = confirm ("would you like to include lowercase letters?")
 var wantsUppercase = confirm ("would you like to include upper case letters?")
-
-alert("Please click Generate Password to reveal your password")
 
 // Creating string of conditionals to determine which combination of characters we'll use to pull characters from to randomize password.
 
@@ -94,10 +93,15 @@ else if (wantsNumbers===false && wantsSymbols===true && wantsLowercase===true &&
 
 }
 // Wants all
-else {
+else if (wantsNumbers===true && wantsSymbols===true && wantsLowercase===true && wantsUppercase===true) {
     var charcombo = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*+=-[]\\\';,/{}|\":<>?0123456789"
-
 }
+else {
+    alert("You must select at least one of the four character types presented. Please refresh")
+}
+
+alert("Please click Generate Password to reveal your password")
+
 // Adding function which will take the string value of charcombo based on conditions and make a random string from it. 
 
 function generatePassword(i) {
@@ -124,7 +128,12 @@ function writePassword() {
 
 }
 
+function clearPassword() {
+    var passwordText = document.querySelector("#password");
 
+    passwordText.value = "";
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+clearBtn.addEventListener("click", clearPassword);
