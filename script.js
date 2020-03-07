@@ -8,7 +8,7 @@ var charNumber = prompt ("Please select a password character length between 8 an
 
 // Validation of correct character length
 
-if (charNumber < 8 || charNumber > 128 || typeof charNumber !== Number) {
+if (charNumber < 8 || charNumber > 128) {
     alert ("Invalid response. Please refresh and enter valid character length")
 }
 
