@@ -1,4 +1,4 @@
-// Assignment Code
+// Creating variables for our buttons we will use to generate the password and clear the password
 var generateBtn = document.querySelector("#generate");
 var clearBtn = document.querySelector("#clear")
 
@@ -8,7 +8,7 @@ var charNumber = prompt ("Please select a password character length between 8 an
 
 // Validation of correct character length
 
-if (charNumber < 8 || charNumber > 128) {
+if (charNumber < 8 || charNumber > 128 || typeof charNumber !== Number) {
     alert ("Invalid response. Please refresh and enter valid character length")
 }
 
@@ -127,13 +127,13 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
+// creating function to clear password upon clicking clear button
 function clearPassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = "";
 }
 
-// Add event listener to generate button
+// Add event listener to generate generate and clear buttons
 generateBtn.addEventListener("click", writePassword);
 clearBtn.addEventListener("click", clearPassword);
